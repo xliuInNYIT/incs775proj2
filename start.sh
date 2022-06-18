@@ -1,0 +1,1 @@
+sudo python2 clos_topo2.py --num_of_core_switches 1 --fanout 2

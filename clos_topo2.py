@@ -20,8 +20,7 @@ class ClosTopo(Topo):
         # Initialize topology and default options
         Topo.__init__(self, **opts)
        
-        "Set up Core and Aggregate level, Connection Core - Aggregation level"
-        #WRITE YOUR CODE HERE!
+        
         aggreg= fanout * cores
         edges= fanout * aggreg
         hosts= edges * fanout
@@ -36,7 +35,7 @@ class ClosTopo(Topo):
 
         pass
 
-        "Set up Edge level, Connection Aggregation - Edge level "
+	"Set up Core and Aggregate level, Connection Core - Aggregation level"
         #WRITE YOUR CODE HERE!
         aggregation_switch=[]
         #make four aggregation with links to each core 
@@ -44,10 +43,14 @@ class ClosTopo(Topo):
             switch=self.addSwitch('a'+str(num))
             print("a"+str(num))
             for i in range(cores):
-                self.addLink(switch,core_switch[i])				#add link with c
+                self.addLink(switch,core_switch[i])				
                 aggregation_switch.append(switch)	
             num=num+1
+	
+	pass
 
+	"Set up Edge level, Connection Aggregation - Edge level "
+        #WRITE YOUR CODE HERE!
         edge_switches=[]
         for x in range(edges):
             switch=self.addSwitch('e'+str(num))
